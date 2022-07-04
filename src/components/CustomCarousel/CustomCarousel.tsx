@@ -31,13 +31,7 @@ interface ICustomCarouselProps {
 }
 
 const CustomCarousel = ({ items }: ICustomCarouselProps) => {
-	const {
-		handlePrev,
-		handleNext,
-		carouselChildren,
-		isTransitioningToRight,
-		isTransitioningToLeft,
-	} = useCustomCarouselState(items);
+	const { carouselChildren } = useCustomCarouselState(items);
 
 	return (
 		<Stack
@@ -46,66 +40,21 @@ const CustomCarousel = ({ items }: ICustomCarouselProps) => {
 			overflow="hidden"
 			sx={{ position: "relative", px: 6 }}
 		>
-			<Box sx={{ position: "absolute", top: "50%", left: "0%" }}>
-				<IconButton onClick={() => handlePrev()} size="large">
-					<ArrowBackIosIcon />
-				</IconButton>
-			</Box>
-
 			{carouselChildren.map((image, index) => (
-				<Slide
-					in={true}
-					direction={"left"}
-					key={index}
-					mountOnEnter
-					unmountOnExit
-					children={
-						<Box
-							sx={{
-								...styles.infoWrapper,
-							}}
-						>
-							<Box
-								component="img"
-								src={image}
-								sx={{
-									width: "100px",
-									...(isTransitioningToRight && {
-										transform: "translate(160%)",
-										transition: "transform 0.5s ease-in-out",
-									}),
-									...(isTransitioningToLeft && {
-										transform: "translate(-160%)",
-										transition: "transform 0.5s ease-in-out",
-									}),
-									...((index !== carouselChildren.length - 1 ||
-										index !== 0 ||
-										!isTransitioningToLeft ||
-										isTransitioningToRight) && {
-										"&:hover": {
-											transition: "transform 0.2s ease-in-out",
-											transform: "scale(1.2)",
-										},
-									}),
-								}}
-							/>
-						</Box>
-					}
-					timeout={{ appear: 500, enter: 500, exit: 500 }}
-				/>
+				<Box
+					sx={{
+						...styles.infoWrapper,
+					}}
+				>
+					<Box
+						component="img"
+						src={image}
+						sx={{
+							width: "100px",
+						}}
+					/>
+				</Box>
 			))}
-
-			<Box
-				sx={{
-					position: "absolute",
-					top: "50%",
-					left: "95%",
-				}}
-			>
-				<IconButton onClick={() => handleNext()} size="large">
-					<ArrowForwardIosIcon />
-				</IconButton>
-			</Box>
 		</Stack>
 	);
 };
