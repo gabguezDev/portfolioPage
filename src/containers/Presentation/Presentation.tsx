@@ -25,7 +25,14 @@ const Presentation = () => {
 	const { onDownload } = useDownload();
 
 	return (
-		<Container>
+		<Box
+			sx={{
+				backgroundColor: "rgba(0,0,0,0.2)",
+				boxShadow: "0px 0px 5px 5px rgba(0,0,0,0.1)",
+				borderRadius: 4,
+				p: 3,
+			}}
+		>
 			<Stack direction="row" spacing={1}>
 				<Box sx={styles.infoWrapper}>
 					<Box
@@ -95,7 +102,7 @@ const Presentation = () => {
 					</Button>
 				</Box>
 			</Stack>
-		</Container>
+		</Box>
 	);
 };
 

@@ -6,9 +6,9 @@ export const styles = {
 		flexDirection: "column",
 		justifyContent: "center",
 		alignItems: "start",
-    px: 3,
+		px: 3,
 	},
 	img: {
-		backgroundColor: "white",
+		backgroundColor: "transparent",
 	},
 };

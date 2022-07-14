@@ -5,6 +5,7 @@ import Stacks from "../../containers/Stacks/Stacks";
 import Experience from "../../containers/Experience/Experience";
 import MyWork from "../../containers/MyWork/MyWork";
 import { styles } from "./LandingPage.styles";
+import Footer from '../../components/Footer/Footer';
 
 const LandingPage = () => {
 	return (
@@ -14,9 +15,7 @@ const LandingPage = () => {
 			<Stacks />
 			<Experience />
 			<MyWork />
-			<Typography sx={styles.copyright}>
-				Gabriel Dominguez <br /> Version 1.0.0
-			</Typography>
+			<Footer />
 		</Box>
 	);
 };
