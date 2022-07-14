@@ -462,6 +462,22 @@ const theme = createTheme({
 			},
 		},
 	},
+	components: {
+		MuiPaper: {
+			styleOverrides: {
+				root: {
+					boxShadow: "0px 0px 3px 3px rgba(0,0,0,0.1)",
+				},
+			},
+		},
+		MuiAccordion: {
+			styleOverrides: {
+				root: {
+					boxShadow: "0px 0px 3px 3px rgba(0,0,0,0.1)",
+				},
+			},
+		},
+	},
 });
 
 export default theme;

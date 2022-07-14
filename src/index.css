@@ -1,0 +1,9 @@
+html {
+	background-image: url("./assets/images/blob-background.svg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: auto;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+}

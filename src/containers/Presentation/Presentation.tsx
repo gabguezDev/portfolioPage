@@ -19,8 +19,11 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import DownloadIcon from "@mui/icons-material/Download";
 
 import { styles } from "./Presentation.styles";
+import useDownload from "./states/useDownload";
 
 const Presentation = () => {
+	const { onDownload } = useDownload();
+
 	return (
 		<Container>
 			<Stack direction="row" spacing={1}>
@@ -55,14 +58,23 @@ const Presentation = () => {
 							<ListItemIcon>
 								<EmailIcon />
 							</ListItemIcon>
-
-							<ListItemText primary="gabrielodominguez10@gmail.com" />
+							<Link
+								underline="none"
+								color="primary"
+								href="mailto:gabrielodominguez10@gmail.com"
+							>
+								<Typography>gabrielodominguez10@gmail.com</Typography>
+							</Link>
 						</ListItem>
 						<ListItem>
 							<ListItemIcon>
 								<LinkedInIcon />
 							</ListItemIcon>
-							<Link underline="none" href="www.linkedin.com/gabrielodominguez">
+							<Link
+								underline="none"
+								color="primary"
+								href="www.linkedin.com/gabrielodominguez"
+							>
 								<Typography>/gabrielodominguez</Typography>
 							</Link>
 						</ListItem>
@@ -73,7 +85,12 @@ const Presentation = () => {
 							<ListItemText primary="Argentina" />
 						</ListItem>
 					</List>
-					<Button size="large" variant="contained" endIcon={<DownloadIcon />}>
+					<Button
+						size="large"
+						variant="contained"
+						endIcon={<DownloadIcon />}
+						onClick={onDownload}
+					>
 						Download CV
 					</Button>
 				</Box>
